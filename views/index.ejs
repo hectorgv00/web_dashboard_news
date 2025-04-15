@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Dashboard de Noticias</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 font-sans text-gray-900">
+    <div class="max-w-4xl mx-auto p-5">
+      <header class="text-center mb-10">
+        <h1 class="text-3xl font-bold text-blue-600">
+          📰 Dashboard de Noticias
+        </h1>
+        <p class="text-lg text-gray-600 mt-2">
+          Últimas noticias de diversas fuentes
+        </p>
+      </header>
+
+      <ul class="space-y-6">
+        <% news.forEach(n => { %>
+        <li
+          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 p-5"
+        >
+          <a
+            href="<%= n.link %>"
+            target="_blank"
+            class="text-xl font-semibold text-blue-500 hover:underline"
+          >
+            <%= n.title %>
+          </a>
+          <small class="text-sm text-gray-500">(<%= n.source %>)</small>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
+</html>
