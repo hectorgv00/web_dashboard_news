@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Configuración</title>
+    <link
+      rel="stylesheet"
+      href="/styles.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-2xl font-bold mb-4">Configuración</h1>
+
+      <!-- Mostrar configuraciones actuales -->
+      <h2 class="text-xl font-semibold mb-2">Configuraciones Guardadas</h2>
+      <ul class="list-disc pl-5">
+        <% if (configs.length > 0) { %> <% configs.forEach((config, index) => {
+        %>
+        <li class="mb-2">
+          <strong>Página Web:</strong> <%= config.website %><br />
+          <strong>Código de Scrapping:</strong> <%= config.scrapingCode %>
+          <strong>Nombre:</strong> <%= config.name %>
+          <div class="mt-2">
+            <form
+              action="/config/edit/<%= index %>"
+              method="POST"
+              class="inline"
+            ></form>
+            <form
+              action="/config/delete/<%= index %>"
+              method="POST"
+              class="inline"
+            >
+              <button
+                type="submit"
+                class="btn btn-delete"
+              >
+                Eliminar
+              </button>
+            </form>
+          </div>
+        </li>
+        <% }); %> <% } else { %>
+        <p>No hay configuraciones guardadas.</p>
+        <% } %>
+      </ul>
+
+      <!-- Formulario para agregar nueva configuración -->
+      <h2 class="text-xl font-semibold mt-6 mb-2">
+        Agregar Nueva Configuración
+      </h2>
+      <form
+        action="/config"
+        method="POST"
+        class="form"
+      >
+        <label
+          for="name"
+          class="block font-medium"
+          >Nombre de la fuente:</label
+        >
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="input mb-4"
+          required
+        />
+
+        <label
+          for="website"
+          class="block font-medium"
+          >Página Web:</label
+        >
+        <input
+          type="text"
+          id="website"
+          name="website"
+          class="input mb-4"
+          required
+        />
+
+        <label
+          for="scrapingCode"
+          class="block font-medium"
+          >Selector CSS:</label
+        >
+        <textarea
+          id="scrapingCode"
+          name="scrapingCode"
+          rows="5"
+          class="textarea mb-4"
+          required
+        ></textarea>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          Guardar
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

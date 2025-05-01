@@ -1,0 +1,22 @@
+[
+  {
+    "website": "https://elpais.com/",
+    "scrapingCode": ".c_t a",
+    "name": "El País"
+  },
+  {
+    "website": "https://www.bbc.com/news",
+    "scrapingCode": "[data-testid=\"card-headline\"]",
+    "name": "BBC News"
+  },
+  {
+    "website": "https://edition.cnn.com/world",
+    "scrapingCode": ".container__headline-text",
+    "name": "CNN"
+  },
+  {
+    "website": "https://www.marca.com/",
+    "scrapingCode": "[data-mrf-layout-title]",
+    "name": "Marca"
+  }
+]
